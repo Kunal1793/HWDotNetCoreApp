@@ -1,0 +1,43 @@
+﻿@page
+@model HWRestaurant.WEB.Pages.MyRestaurants.List1Model
+@{
+    ViewData["Title"] = "List1";
+}
+
+<h3>List of Restaurants: </h3>
+
+    <form method="get">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="search" class="form-control" asp-for="SearchTerm"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary">Search</button>
+                </span>
+            </div>
+        </div>
+    </form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Restaurant Name</th>
+            <th>Restaurant Location</th>
+            <th>Cuisine Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+@foreach (var item in Model.Restaurants)
+{
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Location</td>
+        <td>@item.cuisineType</td>
+        <td>
+            <a class="btn btn-success" asp-page="./Detail" asp-route-RestaurantId="@item.Id">View</a>
+            <a class="btn btn-warning" asp-page="./Edit" asp-route-RestaurantId="@item.Id">Edit</a>
+        </td>
+    </tr>
+}
+</table>
+
+<a class="btn btn-primary"asp-page="./Edit">Add New</a>

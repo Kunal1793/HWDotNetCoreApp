@@ -1,0 +1,19 @@
+﻿@page "{RestaurantId}"
+@model HWRestaurant.WEB.Pages.MyRestaurants.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+@if (Model.Message != null) 
+{
+    <div class="alert alert-dismissible">@Model.Message</div>
+}
+
+<h2>Details Page</h2>
+
+<h5>Restaurant: @Model.restaurant.Name</h5>
+<p>ID: @Model.restaurant.Id</p>
+<p>Location: @Model.restaurant.Location</p>
+<p>Cuisine: @Model.restaurant.cuisineType</p>
+<div>
+<a asp-page="./List1" class="btn btn-primary">All Restaurants</a>
+</div>

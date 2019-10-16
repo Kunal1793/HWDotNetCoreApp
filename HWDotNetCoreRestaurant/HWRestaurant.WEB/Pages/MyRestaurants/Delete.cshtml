@@ -1,0 +1,18 @@
+﻿@page "{RestaurantId}"
+@model DeleteModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<h4>Are You Sure You want to Delete the Restaurant?</h4>
+
+<form method="post">
+    <h6>Restaurant: @Model.restaurant.Name</h6>
+    <p>ID: @Model.restaurant.Id</p>
+    <p>Location: @Model.restaurant.Location</p>
+    <p>Cuisine: @Model.restaurant.cuisineType</p>
+    <div>
+        <button type="submit" class="btn btn-primary">Delete</button>
+    </div>
+</form>

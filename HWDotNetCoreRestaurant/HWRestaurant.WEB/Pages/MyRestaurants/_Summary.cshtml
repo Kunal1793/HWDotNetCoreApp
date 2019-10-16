@@ -1,0 +1,25 @@
+﻿@using HWRestaurant.Core;
+@model Restaurant
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>@Model.Name</h3>
+    </div>
+    <div class="panel-body">
+        <p>Location: @Model.Location</p>
+        <p>Cuisine Type: @Model.cuisineType</p>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-success" 
+           asp-page="./Detail" 
+           asp-route-RestaurantId="@Model.Id">View</a>
+        <a class="btn btn-warning" 
+           asp-page="./Edit" 
+           asp-route-RestaurantId="@Model.Id">Edit</a>
+        <a class="btn btn-danger" 
+           asp-page="./Delete" 
+           asp-route-RestaurantId="@Model.Id">Delete</a>
+    </div>
+</div>
+<hr>
+

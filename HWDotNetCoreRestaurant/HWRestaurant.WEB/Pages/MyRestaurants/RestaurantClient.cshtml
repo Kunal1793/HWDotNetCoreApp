@@ -1,0 +1,33 @@
+﻿@page
+@model HWRestaurant.WEB.Pages.MyRestaurants.RestaurantClientModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RestaurantClient</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+</head>
+<body>
+    
+    <h1>Calling Restaurant API</h1>
+    @section Scripts{
+        <script>
+            $(function () {
+                $.ajax("api/Restaurants/", { method: "get" }).then(function (response)
+                {
+                    console.dir(response);
+                    $('#restaurants').dataTable({
+                        data: response
+                    })
+                })
+            }
+        </script>
+    }
+</body>
+</html>

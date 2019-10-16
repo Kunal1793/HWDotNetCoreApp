@@ -4,9 +4,6 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h3>Editing @Model.restaurant.Name</h3>
 <form method="post">
     <input type="hidden" asp-for="restaurant.Id" />
     <div class="form-group">
@@ -21,21 +18,18 @@
         <span class="text-danger" asp-validation-for="restaurant.Location"></span>
     </div>
 
-
     <div class="form-group">
         <label asp-for="restaurant.cuisineType"></label>
         <select class="form-control" asp-for="restaurant.cuisineType" asp-items="Model.Cuisines"></select>
         <span class="text-danger" asp-validation-for="restaurant.cuisineType"></span>
     </div>
 
-    <div class="form-group">
     <button type="submit" class="btn btn-primary">Save</button>
-    </div>
 
 </form>
 
 <!--Adds Validation-->
 @section Scripts
 {
-   <partial name="_ValidationScriptsPartial" />
- }
+    <partial name="_ValidationScriptsPartial" />
+}

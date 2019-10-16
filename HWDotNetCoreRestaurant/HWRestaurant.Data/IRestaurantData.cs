@@ -13,7 +13,9 @@ namespace HWRestaurant.Data
 
         Restaurant Update(Restaurant UpdatedRestaurant);
 
-        void Insert(Restaurant Addrestaurant); 
+        Restaurant Delete(int id);
+        Restaurant Insert(Restaurant Addrestaurant);
+        int GetCountOfRestaurants();
         int Commit();
 
     }

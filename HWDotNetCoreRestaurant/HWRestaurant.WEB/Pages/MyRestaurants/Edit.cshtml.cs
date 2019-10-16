@@ -26,7 +26,7 @@ namespace HWRestaurant.WEB.Pages.MyRestaurants
             this.restaurantData = restaurantData;
             this.htmlHelper = htmlHelper;
         }
-        public IActionResult OnGet(int? RestaurantId) 
+        public ActionResult OnGet(int? RestaurantId) 
         {
             Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
             if (RestaurantId.HasValue)
@@ -42,10 +42,9 @@ namespace HWRestaurant.WEB.Pages.MyRestaurants
                 return RedirectToPage("./NotFound");
             }
             return Page();
-
         }
 
-        public IActionResult onPost() 
+        public IActionResult OnPost() 
         {
             if (!ModelState.IsValid) 
             {
@@ -62,7 +61,7 @@ namespace HWRestaurant.WEB.Pages.MyRestaurants
             }
             restaurantData.Commit();
             TempData["Message"] = "Restaurant Saved!";
-            return RedirectToPage("./Detail", new { RestaurantId = restaurant.Id});
+            return RedirectToPage("./List1", new { RestaurantId = restaurant.Id});
 
         }
 
